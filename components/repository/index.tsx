@@ -1,0 +1,57 @@
+import React from "react"
+import { Repositories, useAppContext } from "../../context"
+import { View, TouchableOpacity } from 'react-native'
+import { Card, Title, Paragraph } from 'react-native-paper'
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import styles from "./styles"
+import InfoBadge from "../info"
+
+interface RepositoryProps {
+    repositoryData: Repositories
+  }
+  
+  const Repository = ({ repositoryData }: RepositoryProps) => {
+    const { data, setData, storeData } = useAppContext()
+  
+    const isAlreadyIncluded = !!data.favorites?.find((repo: any) => repo?.id === repositoryData?.id)
+  
+    const handleFavorite = (repository: any) => () => {
+      setData((prevState: any) => {
+        if (!isAlreadyIncluded) {
+          const state = {
+            ...prevState,
+            favorites: [...prevState.favorites, repository],
+          }
+          storeData(state)
+          return state
+        }
+        const state = {
+          ...prevState,
+          favorites: prevState.favorites.filter((repo: any) => repo?.id !== repository?.id),
+        }
+        storeData(state)
+        return state
+      })
+    }
+  
+    return (
+      <Card style={styles.cardContainer} key={repositoryData.id}>
+        <Card.Content style={styles.cardContent}>
+          <Title>{repositoryData.name}</Title>
+          <Paragraph>{repositoryData.description ?? '-'}</Paragraph>
+          <View style={styles.footer}>
+            <InfoBadge
+              forks={repositoryData.forks_count}
+              stars={repositoryData.stargazers_count}
+              fulllName={repositoryData.full_name}
+            />
+            <TouchableOpacity style={styles.button} onPress={handleFavorite(repositoryData)}>
+              <MaterialIcon name="heart" color={isAlreadyIncluded ? 'red' : 'black'} />
+            </TouchableOpacity>
+          </View>
+        </Card.Content>
+      </Card>
+    )
+  }
+  
+  export default Repository
