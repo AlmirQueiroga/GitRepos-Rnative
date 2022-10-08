@@ -42,7 +42,7 @@ const ERROR_MSG = {
     }, [repoName, setData])
   
     return (
-      <View>
+      <View style={styles.topView}>
         <TextInput
           style={styles.input}
           onChangeText={setRepoName}

@@ -4,9 +4,8 @@ import { View, TouchableOpacity, Text } from 'react-native'
 import { Card, Title, Paragraph } from 'react-native-paper'
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import styles from "./styles"
-import { fav } from "./styles"
 import InfoBadge from "../info"
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from "@expo/vector-icons"
 
 interface RepositoryProps {
     repositoryData: Repositories
@@ -38,25 +37,24 @@ interface RepositoryProps {
   
     return (
       <Card style={styles.cardContainer} key={repositoryData.id}>
-        <Card.Content style={styles.cardContent}>
-          <Title>{repositoryData.name}</Title>
-          <Paragraph>{repositoryData.description ?? '-'}</Paragraph>
-          <Paragraph> 
+      <Card.Content style={styles.cardContent}>
+        <Title>{repositoryData.name}</Title>
+        <Paragraph>{repositoryData.description ?? '-'}</Paragraph>
+        <Paragraph> 
             <FontAwesome name="circle" size={8} color={"red"} /> {repositoryData.language ?? '-'}
-          </Paragraph>
-          <View style={styles.footer}>
-            <TouchableOpacity style={fav(isAlreadyIncluded).button} onPress={handleFavorite(repositoryData)}>
-            <MaterialIcon name="star" color={isAlreadyIncluded ? 'yellow' : 'black'} />
-              <Text style={fav(isAlreadyIncluded).text}>Favoritar</Text>
-            </TouchableOpacity>
-            <InfoBadge
-              forks={repositoryData.forks_count}
-              stars={repositoryData.stargazers_count}
-              fulllName={repositoryData.full_name}
-            />
-          </View>
-        </Card.Content>
-      </Card>
+        </Paragraph>
+        <View style={styles.footer}>
+          <InfoBadge
+            forks={repositoryData.forks_count}
+            stars={repositoryData.stargazers_count}
+            fulllName={repositoryData.full_name}
+          />
+          <TouchableOpacity style={styles.button} onPress={handleFavorite(repositoryData)}>
+            <MaterialIcon name="heart" color={isAlreadyIncluded ? 'red' : 'black'} />
+          </TouchableOpacity>
+        </View>
+      </Card.Content>
+    </Card>
     )
   }
   

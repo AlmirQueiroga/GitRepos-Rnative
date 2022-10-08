@@ -4,7 +4,7 @@
  *
  */
  import * as React from 'react';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,6 +13,7 @@ import FavoritesScreen from '../screens/favorites';
 import ReposScreen from '../screens/repos';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import { View } from 'react-native';
 
 export default function Navigation() {
   return (
@@ -54,19 +55,22 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="RepoS"
         component={ReposScreen}
+
         options={({ navigation }: RootTabScreenProps<'RepoS'>) => ({
-          title: ' ',
-          tabBarIcon: ({ color }) => <FontAwesome5 name="github" size={32} color={color} />,
-          tabBarActiveTintColor: 'black'
+          tabBarIcon: ({ color }) => <TabBarIcon name="github" color={color} />,
+          tabBarActiveTintColor: 'black',
+          title: 'Search',
+          headerShown:  false
         })}
       />
       <BottomTab.Screen
         name="FavoriteS"
         component={FavoritesScreen}
         options={{
-          title: ' ',
-          tabBarIcon: ({ color }) => <MaterialIcon name="star" size={32} color={color} />,
-          tabBarActiveTintColor: 'black'
+          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
+          tabBarActiveTintColor: 'black',
+          title: 'Favorites',
+          headerShown:  false
         }}
       />
     </BottomTab.Navigator>
@@ -77,8 +81,8 @@ function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome5>['name'];
+  name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome5 size={32} {...props} />;
+  return <FontAwesome size={32} {...props} />;
 }

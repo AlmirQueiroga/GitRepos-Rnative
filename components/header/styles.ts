@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
+  topView:{
+    marginTop:'15%'
+  },
   input: {
     width: '100%',
     paddingVertical: 12,

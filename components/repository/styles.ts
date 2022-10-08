@@ -18,22 +18,14 @@ export default StyleSheet.create({
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
-  }
-});
-
-export const fav = (isAlreadyIncluded:boolean) =>
-StyleSheet.create({
-  text: {
-    borderColor: isAlreadyIncluded ? '#faf3dc' : '#dedede',
-    color: isAlreadyIncluded ? '#ffd02c' : 'black'
   },
   button: {
-    flexDirection: 'row',
+    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 80,
+    width: 40,
     height: 40,
     borderRadius: 8,
-    backgroundColor: isAlreadyIncluded ? '#faf3dc' : '#dedede'
+    backgroundColor: '#dedede'
   }
 });
