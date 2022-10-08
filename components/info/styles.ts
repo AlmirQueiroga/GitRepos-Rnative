@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderColor: '#dedede',
     borderWidth: 1,
     borderRadius: 8,
-    marginRight: 10,
+    marginLeft: 40,
   },
   text: {
     borderLeftWidth: 2,
@@ -21,11 +21,10 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 5,
     backgroundColor: '#dedede',
-    borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 8,
+    borderTopLeftRadius: 6,
+    borderBottomLeftRadius: 6,
     flexDirection: 'row',
     alignItems: 'center',
-    borderRightWidth: 2,
     borderColor: '#dedede',
   },
   size: {

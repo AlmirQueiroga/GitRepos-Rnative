@@ -8,6 +8,7 @@ export interface Repositories {
   forks_count: number
   stargazers_count: number
   full_name: string
+  language: string
 }
 export interface GlobalState {
   loadedRepositories?: Repositories[]

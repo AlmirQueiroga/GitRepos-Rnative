@@ -3,15 +3,14 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from '@expo/vector-icons';
+ import * as React from 'react';
+import { FontAwesome5 } from '@expo/vector-icons';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import * as React from 'react';
 import FavoritesScreen from '../screens/favorites';
 import ReposScreen from '../screens/repos';
-
-
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -56,16 +55,18 @@ function BottomTabNavigator() {
         name="RepoS"
         component={ReposScreen}
         options={({ navigation }: RootTabScreenProps<'RepoS'>) => ({
-          title: 'Repo Screen',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: ' ',
+          tabBarIcon: ({ color }) => <FontAwesome5 name="github" size={32} color={color} />,
+          tabBarActiveTintColor: 'black'
         })}
       />
       <BottomTab.Screen
         name="FavoriteS"
         component={FavoritesScreen}
         options={{
-          title: 'Favorites Screen',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: ' ',
+          tabBarIcon: ({ color }) => <MaterialIcon name="star" size={32} color={color} />,
+          tabBarActiveTintColor: 'black'
         }}
       />
     </BottomTab.Navigator>
@@ -76,8 +77,8 @@ function BottomTabNavigator() {
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof FontAwesome5>['name'];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome5 size={32} {...props} />;
 }
