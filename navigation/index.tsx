@@ -62,7 +62,7 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'RepoS'>) => ({
           tabBarIcon: ({ color }) => <TabBarIcon name="github" color={color} />,
           tabBarActiveTintColor: 'black',
-          title: ' ',
+          tabBarShowLabel: false,
           headerShown:  false
         })}
       />
@@ -70,9 +70,9 @@ function BottomTabNavigator() {
         name="FavoriteS"
         component={FavoritesScreen}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="heart" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="star" color={color} />,
           tabBarActiveTintColor: 'black',
-          title: ' ',
+          tabBarShowLabel: false,
           headerShown:  false
         }}
       />

@@ -10,6 +10,12 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold'
   },
+  mainView: {
+    flex: 1,
+    paddingHorizontal: 10,
+    boxSizing: 'border-box',
+    backgroundColor: '#fff',
+  },
   emptyContainer: {
     marginTop: 250,
     flexDirection: 'row',
