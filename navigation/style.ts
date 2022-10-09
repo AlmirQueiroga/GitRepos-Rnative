@@ -9,7 +9,10 @@ export default StyleSheet.create({
     justifyContent: 'flex-end', 
     zIndex: 10
   },
-  color:{
-    backgroundColor: '#FFF'
+  content:{
+    backgroundColor: '#FFF', 
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    overflow: 'hidden'
   }
 })

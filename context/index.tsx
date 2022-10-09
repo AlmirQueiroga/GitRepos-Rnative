@@ -9,6 +9,7 @@ export interface Repositories {
   stargazers_count: number
   full_name: string
   language: string
+  owner: owner
 }
 export interface GlobalState {
   loadedRepositories?: Repositories[]
@@ -16,6 +17,11 @@ export interface GlobalState {
   showModal: boolean
   showError: boolean
 }
+
+interface owner {
+  login: string
+  avatar_url: string
+} 
 
 type cacheData = string | null | undefined
 

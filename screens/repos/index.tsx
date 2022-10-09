@@ -16,7 +16,7 @@ export default function ReposScreen({ navigation }: RootTabScreenProps<'RepoS'>)
     //consider changing Header to navigation
     <View style={styles.mainView}>
       <Header onPress={() => setData(prev => ({...prev, showModal: !prev.showModal}))}/>
-      <Repos data={data.loadedRepositories || []} />
+      <Repos isfavoritesc={false} data={data.loadedRepositories || []} />
     </View>
   );
 }

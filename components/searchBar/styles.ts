@@ -4,42 +4,37 @@ export default StyleSheet.create({
   topContainer: {
     padding: 10,
   },
-  topChipText: {
+  topChip: {
     flexDirection: 'row', 
     justifyContent: 'space-between', 
-    width: '100%'
+    width: '100%',
+    marginVertical:5
+  },
+  topChipText:{
+    fontWeight:'bold',
+    fontSize: 16
   },
   input: {
-    width: '100%',
-    paddingVertical: 12,
+    width: '95%',
+    height:40,
+    marginBottom: '5%'
   },
-  container: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    marginBottom: 5,
-  },
-  chipIcon: {
-    marginRight: 10
-  },
-  chipIconText: {
-    margin: 10
-  },
-  chipText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  chipContent: {
-    width: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-  button: {
-    marginLeft: 'auto',
-    borderWidth: 1,
+  closeButton: {
+    borderRadius:20,
+    backgroundColor: '#dedede',
     borderColor: '#dedede',
   },
   loader: {
     marginVertical: 10,
   },
+  labelStyle:{
+    color:'black', 
+    fontWeight: 'bold'
+  },
+  confirmButton:{
+    width:'50%', 
+    backgroundColor:'#dedede', 
+    alignSelf:'center', 
+    borderRadius:20
+  }
 })

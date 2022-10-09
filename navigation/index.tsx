@@ -29,7 +29,7 @@ export default function Navigation() {
           transparent
           onRequestClose={() => closeModal()}>
           <TouchableOpacity style={style.modal} onPress={() => closeModal()}>
-            <View style={style.color}>
+            <View style={style.content}>
               <SearchBar setShowOpacity={() => setError(true)}/>
             </View>
           </TouchableOpacity>

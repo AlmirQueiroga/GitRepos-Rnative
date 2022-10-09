@@ -6,14 +6,15 @@ import styles from './styles';
 
 interface RepositoriesList {
   data: Repositories[]
+  isfavoritesc: boolean
 }
 
-const Repos = ({ data }: RepositoriesList) => {
+const Repos = ({ data, isfavoritesc }: RepositoriesList) => {
   return (
     <FlatList
       contentContainerStyle={styles.list}
       data={data}
-      renderItem={({item}) => <Repository repositoryData={item}/>}
+      renderItem={({item}) => <Repository isfavoritesc={isfavoritesc} repositoryData={item}/>}
       keyExtractor={item => String(item.id)}
     />
   );

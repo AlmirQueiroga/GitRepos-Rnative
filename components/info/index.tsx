@@ -5,42 +5,17 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import styles from './styles'
 
 interface InfoBadgeProps {
-  forks: number
   stars: number
   fulllName: string
 }
 
-const InfoBadge = ({ forks, stars, fulllName }: InfoBadgeProps) => {
+const InfoBadge = ({ stars, fulllName }: InfoBadgeProps) => {
   return (
     <View style={styles.wrapper}>
-      <View style={styles.infoContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            Linking.openURL(`http://github.com/${fulllName}/network/members`)
-          }}
-          style={styles.label}
-        >
-          <MaterialIcon size={20} name="usb" />
-          <Text style={styles.text}>Fork</Text>
-        </TouchableOpacity>
-        <View style={styles.size}>
-          <Text>{forks}</Text>
-        </View>
-      </View>
-      <View style={styles.infoContainer}>
-        <TouchableOpacity
-          onPress={() => {
-            Linking.openURL(`http://github.com/${fulllName}/stargazers`)
-          }}
-          style={styles.label}
-        >
-          <MaterialIcon size={20} name="star-border" />
-          <Text style={styles.text}>Star</Text>
-        </TouchableOpacity>
-        <View style={styles.size}>
-          <Text>{stars}</Text>
-        </View>
-      </View>
+      <MaterialIcon onPress={() => {
+            Linking.openURL(`http://github.com/${fulllName}/stargazers`)}} 
+            size={20} name="star" color="yellow" />  
+      <Text>{stars}</Text>
     </View>
   )
 }

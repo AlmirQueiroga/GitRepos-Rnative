@@ -15,7 +15,7 @@ export default function FavoritesScreen() {
       <Header onPress={() => setData(prev => ({...prev, showModal: !prev.showModal}))}/>
       <View style={styles.container}>
         {data?.favorites?.length ? (
-          <Repos data={data.favorites} />
+          <Repos data={data.favorites} isfavoritesc={true}/>
         ) : (
           <View style={styles.emptyContainer}>
             <Text style={styles.empty}>Você ainda não tem facoritos.</Text>

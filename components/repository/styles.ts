@@ -17,12 +17,30 @@ export default StyleSheet.create({
   cardContent: {
     marginBottom: 10,
   },
+  header:{
+    flexDirection:'row', 
+    justifyContent: 'space-between', 
+    borderBottomWidth:1, 
+    borderBottomColor:'#dedede', 
+    height:50, 
+    marginBottom:10
+  },
   footer: {
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between'
   },
-  title:{
+  profileAvatar: {
+    borderRadius:20, 
+    width:29, 
+    height:29
+  },
+  title: {
+    fontSize: 12
+  },
+  titleName:{
+    fontWeight:'bold',
     fontSize: 12
   }
 });
