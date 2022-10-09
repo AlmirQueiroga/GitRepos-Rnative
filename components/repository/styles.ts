@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   cardContainer: {
+    alignSelf:'center',
+    width: '95%',
+    marginTop: 16,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -19,13 +22,24 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  title:{
+    fontSize: 12
+  }
+});
+
+export const fav = (isAlreadyIncluded:boolean) =>
+StyleSheet.create({
+  text: {
+    borderColor: isAlreadyIncluded ? '#faf3dc' : '#dedede',
+    color: isAlreadyIncluded ? '#ffd02c' : 'black',
+  },
   button: {
-    display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 40,
+    width: 80,
     height: 40,
     borderRadius: 8,
-    backgroundColor: '#dedede'
+    backgroundColor: isAlreadyIncluded ? '#faf3dc' : '#dedede'
   }
 });

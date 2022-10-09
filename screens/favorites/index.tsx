@@ -10,12 +10,11 @@ export default function FavoritesScreen() {
   
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Favorites repository list:</Text>
       {data?.favorites?.length ? (
         <Repos data={data.favorites} />
       ) : (
         <View style={styles.emptyContainer}>
-          <Text style={styles.empty}>You don't have favorites yet.</Text>
+          <Text style={styles.empty}>Você ainda não tem facoritos.</Text>
         </View>
       )}
     </View>

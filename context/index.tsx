@@ -13,6 +13,8 @@ export interface Repositories {
 export interface GlobalState {
   loadedRepositories?: Repositories[]
   favorites?: Repositories[]
+  showModal: boolean
+  showError: boolean
 }
 
 type cacheData = string | null | undefined
@@ -25,6 +27,8 @@ type ContextType = {
 const INITIAL_PROPS: GlobalState = {
   loadedRepositories: [],
   favorites: [],
+  showModal: false,
+  showError: false
 }
 
 export const AppContext = createContext<ContextType>({ data: INITIAL_PROPS, setData: () => {} })

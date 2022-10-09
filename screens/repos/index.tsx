@@ -1,3 +1,4 @@
+import WeFit from '../../components/wefit';
 import React from 'react';
 import { View } from 'react-native';
 import Header from '../../components/header';
@@ -9,12 +10,12 @@ import styles from './styles'
 
 export default function ReposScreen({ navigation }: RootTabScreenProps<'RepoS'>) {
 
-  const { data } = useAppContext()
+  const { data,setData } = useAppContext()
 
   return (
 
     <View style={styles.mainView}>
-      <Header />
+      <Header onPress={() => setData(prev => ({...prev, showModal: !prev.showModal}))}/>
       <Repos data={data.loadedRepositories || []} />
     </View>
   );

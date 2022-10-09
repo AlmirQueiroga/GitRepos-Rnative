@@ -1,34 +1,22 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  topView:{
-    marginTop:'15%'
+  container:{
+    marginTop:'15%',
+    marginBottom:'5%',
+    alignSelf:'center',
+    width: '95%',
   },
-  input: {
-    width: '100%',
-    paddingVertical: 12,
-  },
-  container: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    marginBottom: 5,
-  },
-  chipText: {
-    fontSize: 14,
+  logof: {
     fontWeight: 'bold',
+    fontSize: 20
   },
-  chipContent: {
-    width: 40,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
+  logoS: {
+    fontSize: 20
+  }, 
   button: {
-    marginLeft: 'auto',
-    borderWidth: 1,
-    borderColor: '#dedede',
-  },
-  loader: {
-    marginVertical: 10,
-  },
+    right: 10, 
+    position: 'absolute'
+  }
+  
 })

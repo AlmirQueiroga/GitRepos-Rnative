@@ -1,73 +1,20 @@
-import { useNavigation } from "@react-navigation/native"
-import React, { useCallback, useState } from "react"
-import { GlobalState, Repositories, useAppContext } from "../../context"
-import { StackNavigationProp } from '@react-navigation/stack'
-import { TextInput, Text, Chip, ProgressBar } from 'react-native-paper'
-import { ToastAndroid, View } from "react-native"
+import React, { useState } from "react"
+import { Text } from 'react-native-paper'
+import { View } from "react-native"
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 import styles from "./styles"
-import { api } from "../../services/api"
-import DialogError from "../dialogs/error"
+import WeFit from "../../components/wefit"
 
-const ERROR_MSG = {
-    title: 'Ops!',
-    message:
-      'An error occurred while processing your request, please try again in few minutes or contact the support.',
-  }
   
-  const Header = () => {
-    const [repoName, setRepoName] = useState('')
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
-    const { data, setData } = useAppContext()
-    
-  
-    const toggleErrorDialog = () => {
-      setError(prevState => !prevState)
-    }
-  
-    const getRepositories = useCallback(async (): Promise<void> => {
-      try {
-        setLoading(true)
-        const response: { data: Array<Repositories> } = await api.get(`/users/${repoName}/repos`)
-        setData((prevState: GlobalState) => ({
-          ...prevState,
-          loadedRepositories: response.data,
-        }))
-        setLoading(false)
-      } catch (error) {
-        setLoading(false)
-        setError(true)
-      }
-    }, [repoName, setData])
-  
+  const Header = (props: { onPress: () => void }) => {
+
+    const { onPress } = props
+
     return (
-      <View style={styles.topView}>
-        <TextInput
-          style={styles.input}
-          onChangeText={setRepoName}
-          mode="outlined"
-          value={repoName}
-          label="Github username"
-          onSubmitEditing={getRepositories}
-          autoCorrect={false}
-          autoCapitalize="none"
-        />
-        <View style={styles.container}>
-          <Chip icon="folder" style={{ marginRight: 10 }} textStyle={{ margin: 10 }} mode="outlined">
-            <Text style={styles.chipText}>{data?.loadedRepositories?.length}</Text>
-          </Chip>
-          <Chip icon="heart" mode="outlined">
-            <Text style={styles.chipText}>{data?.favorites?.length}</Text>
-          </Chip>
-        </View>
-        <ProgressBar style={styles.loader} visible={loading} indeterminate={true} />
-        <DialogError
-          visible={error}
-          handleConfirm={toggleErrorDialog}
-          title={ERROR_MSG.title}
-          message={ERROR_MSG.message}
-        />
+      <View style={styles.container}>
+       <WeFit fontSize={20}/>
+       <MaterialIcon size={24} name="settings" style={styles.button} onPress={() => onPress()}/>
       </View>
     )
   }
