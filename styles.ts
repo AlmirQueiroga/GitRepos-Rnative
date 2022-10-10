@@ -14,5 +14,10 @@ export default StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     overflow: 'hidden'
+  },
+  splash:{
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center'
   }
 })

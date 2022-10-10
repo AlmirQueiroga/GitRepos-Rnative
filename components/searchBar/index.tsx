@@ -6,25 +6,13 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 
 import styles from "./styles"
 import { api } from "../../services/api"
-import DialogError from "../dialogs/error"
-
-const ERROR_MSG = {
-    title: 'Ops!',
-    message:
-      'Um erro aconteceu ao processar sua solicitação, tente um diferente parâmetro ou tente novamente',
-  }
   
-  const SearchBar = (props: { setShowOpacity: () => void }) => {
+  const SearchBar = () => {
     const [repoName, setRepoName] = useState('')
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(false)
-    const { data, setData } = useAppContext()
+    const [ setError] = useState(false)
+    const { setData } = useAppContext()
     
-  
-    const toggleErrorDialog = () => {
-      setError(prevState => !prevState)
-    }
-  
     const getRepositories = useCallback(async (): Promise<void> => {
 
       try {
@@ -38,7 +26,7 @@ const ERROR_MSG = {
         setLoading(false)
       } catch (error) {
         setLoading(false)
-        setData(prev => ({...prev, showModal: false}))
+        setData(prev => ({...prev, showModal: false, showError: true}))
       }
     }, [repoName, setData, setError])
 
@@ -62,12 +50,6 @@ const ERROR_MSG = {
                 autoCapitalize="none"/>
             <Button labelStyle={styles.labelStyle} uppercase={false} style={styles.confirmButton} onPress={() => getRepositories()}>Salvar</Button>
             <ProgressBar style={styles.loader} visible={loading} indeterminate={true} />
-            <DialogError
-                visible={error}
-                handleConfirm={toggleErrorDialog}
-                title={ERROR_MSG.title}
-                message={ERROR_MSG.message}
-            />
         </View>
       </View>
     )

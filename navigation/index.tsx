@@ -10,11 +10,17 @@ import LinkingConfiguration from './LinkingConfiguration';
 import { Modal, Text, View, TouchableOpacity } from 'react-native';
 import { useAppContext } from '../context';
 import SearchBar from '../components/searchBar';
-import style from './style';
+import style from 'styles'
+import DialogError from '../components/dialogs/error';
+
+const ERROR_MSG = {
+  title: 'Ops!',
+  message:
+    'Um erro aconteceu ao processar sua solicitação, tente um diferente parâmetro ou tente novamente',
+}
 
 export default function Navigation() {
   const { data, setData } = useAppContext()
-  const [error, setError] = React.useState<boolean>(false)
 
   const closeModal = () => setData(prev => ({...prev, showModal: false}))
 
@@ -30,10 +36,16 @@ export default function Navigation() {
           onRequestClose={() => closeModal()}>
           <TouchableOpacity style={style.modal} onPress={() => closeModal()}>
             <View style={style.content}>
-              <SearchBar setShowOpacity={() => setError(true)}/>
+              <SearchBar/>
             </View>
           </TouchableOpacity>
         </Modal>
+        <DialogError
+                visible={data.showError}
+                handleConfirm={() => setData(prev => ({...prev, showError: false}))}
+                title={ERROR_MSG.title}
+                message={ERROR_MSG.message}
+            />
     </NavigationContainer>
   );
 }
