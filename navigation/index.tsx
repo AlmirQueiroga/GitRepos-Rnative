@@ -10,7 +10,7 @@ import LinkingConfiguration from './LinkingConfiguration';
 import { Modal, Text, View, TouchableOpacity } from 'react-native';
 import { useAppContext } from '../context';
 import SearchBar from '../components/searchBar';
-import style from 'styles'
+import style from '../styles'
 import DialogError from '../components/dialogs/error';
 
 const ERROR_MSG = {

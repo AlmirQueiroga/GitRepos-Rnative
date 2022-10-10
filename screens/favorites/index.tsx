@@ -18,7 +18,7 @@ export default function FavoritesScreen() {
           <Repos data={data.favorites} isfavoritesc={true}/>
         ) : (
           <View style={styles.emptyContainer}>
-            <Text style={styles.empty}>Você ainda não tem facoritos.</Text>
+            <Text style={styles.empty}>Você ainda não tem favoritos.</Text>
           </View>
         )}
       </View>
