@@ -5,11 +5,6 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
   },
-  heading: {
-    margin: 20,
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
   mainView: {
     flex: 1,
     paddingHorizontal: 10,

@@ -10,7 +10,7 @@ export default function FavoritesScreen() {
   const { data, setData } = useAppContext()
   
   return (
-    //consider changing Header to navigation
+
     <View style={styles.mainView}>
       <Header onPress={() => setData(prev => ({...prev, showModal: !prev.showModal}))}/>
       <View style={styles.container}>
@@ -23,6 +23,7 @@ export default function FavoritesScreen() {
         )}
       </View>
     </View>
+    
   );
 }
 

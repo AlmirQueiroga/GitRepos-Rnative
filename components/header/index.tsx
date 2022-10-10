@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { Text } from 'react-native-paper'
+import React from "react"
 import { View } from "react-native"
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 

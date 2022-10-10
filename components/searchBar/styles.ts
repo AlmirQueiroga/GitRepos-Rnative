@@ -25,7 +25,7 @@ export default StyleSheet.create({
     borderColor: '#dedede',
   },
   loader: {
-    marginVertical: 10,
+    marginVertical: 5,
   },
   labelStyle:{
     color:'black', 

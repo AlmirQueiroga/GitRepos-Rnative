@@ -40,6 +40,7 @@ const INITIAL_PROPS: GlobalState = {
 export const AppContext = createContext<ContextType>({ data: INITIAL_PROPS, setData: () => {} })
 
 const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
+
   const [data, setData] = useState<GlobalState>(INITIAL_PROPS)
 
   const loadData = async () => {
@@ -52,21 +53,27 @@ const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
   }, [])
 
   const value = { data, setData }
+
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
 
 export default AppContextProvider
 
 interface UseAppContextReturn extends ContextType {
+
   storeData: (data: GlobalState) => void
+
 }
 
 export const useAppContext = () => {
+
   const context = useContext<ContextType>(AppContext)
   const { data, setData } = context
 
   const storeData = (data: GlobalState) => {
+
     AsyncStorage.setItem('APP::STATE', JSON.stringify(data.favorites))
+		
   }
 
   return { data, setData, storeData } as UseAppContextReturn

@@ -16,6 +16,7 @@ const WeFit = ({fontSize, logoStyle} : LogoProps) => {
 			</View>
 		</View>
 	)}
+	
 export default WeFit
 
 

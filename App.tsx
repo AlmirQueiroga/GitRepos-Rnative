@@ -14,23 +14,22 @@ export default function App() {
     setTimeout(() => setSplash(false), 2000)
   }, [])
 
-
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <>
-      {
-        !splash ? (
-        <AppContextProvider>
-          <PaperProvider>
-            <Navigation />
-          </PaperProvider>
-        </AppContextProvider>
-        ) : (
-          <WeFit fontSize={60} logoStyle={styles.splash}/>
-        )
-        }
+				{
+					!splash ? (
+						<AppContextProvider>
+							<PaperProvider>
+								<Navigation />
+							</PaperProvider>
+						</AppContextProvider>
+					) : (
+						<WeFit fontSize={60} logoStyle={styles.splash}/>
+					)
+				}
       </>
     );
   }

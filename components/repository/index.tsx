@@ -40,17 +40,17 @@ interface RepositoryProps {
       <Card style={styles.cardContainer} key={repositoryData.id}>
         <Card.Content style={styles.cardContent}>
           <View style={styles.header}>
-          <Title style={styles.title}>{repositoryData.owner.login}/<Title style={styles.titleName}>{repositoryData.name}</Title></Title>  
-          <Image source={{uri:repositoryData.owner.avatar_url}} style={styles.profileAvatar}/>
+						<Title style={styles.title}>{repositoryData.owner.login}/<Title style={styles.titleName}>{repositoryData.name}</Title></Title>  
+						<Image source={{uri:repositoryData.owner.avatar_url}} style={styles.profileAvatar}/>
           </View>      
           <Paragraph>{repositoryData.description ?? '-'}</Paragraph>
           <View style={styles.footer}>
-          {isfavoritesc === false &&
-            <TouchableOpacity style={fav(isAlreadyIncluded).button} onPress={handleFavorite(repositoryData)}>
-              <MaterialIcon name="star" color={isAlreadyIncluded ? 'yellow' : 'black'} />
-              <Text style={fav(isAlreadyIncluded).text}>Favoritar</Text>
-            </TouchableOpacity>
-           }
+						{isfavoritesc === false &&
+							<TouchableOpacity style={fav(isAlreadyIncluded).button} onPress={handleFavorite(repositoryData)}>
+								<MaterialIcon name="star" color={isAlreadyIncluded ? 'yellow' : 'black'} />
+								<Text style={fav(isAlreadyIncluded).text}>Favoritar</Text>
+							</TouchableOpacity>
+						}
             <InfoBadge
               stars={repositoryData.stargazers_count}
               fulllName={repositoryData.full_name}
