@@ -74,14 +74,13 @@ relacionado
 
 ### TODO
 
-PIXEL PERFECT --> substituir margins e %;
-Arquivo type para armazenar todas as interfaces utilizadas;
-Desing da barra de pesquisa parece meio off
-Colocar nome do último usuário selecionado em storage
-Animação para splash screen
-global.d.ts para fonts e svgs
-Trocar icons por Svgs
-Importar Inter font
-Utlizar expo splash screen?
-Utilizar SSR?
- 
+PIXEL PERFECT --> substituir margins e %; 
+Arquivo type para armazenar todas as interfaces utilizadas; 
+Desing da barra de pesquisa parece meio off; 
+Colocar nome do último usuário selecionado em storage; 
+Animação para splash screen; 
+global.d.ts para fonts e svgs; 
+Trocar icons por Svgs; 
+Importar Inter font; 
+Utlizar expo splash screen? 
+Utilizar SSR? 
